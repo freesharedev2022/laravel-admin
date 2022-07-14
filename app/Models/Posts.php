@@ -18,4 +18,25 @@ class Posts extends Model
             $item->slug = to_slug($item->title);
         });
     }
+
+    public function getCategoryOtherAttribute($value)
+    {
+        return explode(',', $value);
+    }
+
+    public function setCategoryOtherAttribute($value)
+    {
+        $this->attributes['category_other'] = implode(',', $value)  ? ','.implode(',', $value) .',' : '';
+    }
+
+
+    public function getKeywordAttribute($value)
+    {
+        return explode(',', $value);
+    }
+
+    public function setKeywordAttribute($value)
+    {
+        $this->attributes['keyword'] = implode(',', $value) ? ','.implode(',', $value) .',' :  '';
+    }
 }

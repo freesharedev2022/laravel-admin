@@ -82,6 +82,7 @@ class PostController extends Controller
       $form->ckeditor('content', 'Nội dung');
       $form->select('category_id', 'Danh mục')->options($arrCate);
       $form->multipleSelect('category_other', "Danh mục khác")->options($arrCate);
+      $form->multipleSelect('keyword', "Từ khoá");
       $form->switch("status")->default(true);
       $form->saved(function (Form $form) {});
     });
